@@ -1,6 +1,7 @@
 
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { applayout } from "../../Components";
+import { AppLayout } from "../../Components/AppLayout";
+
 
 export default function NewPost() {
     return <div>
@@ -12,7 +13,7 @@ export default function NewPost() {
   
 
 NewPost.getLayout = function getLayout(page, pageProps){
-    return<applayout{...pageProps}>{page}</applayout>;
+    return<AppLayout{...pageProps}>{page}</AppLayout>;
 }; 
 
   export const getServerSideProps = withPageAuthRequired (() =>{

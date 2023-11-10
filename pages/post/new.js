@@ -1,22 +1,36 @@
-
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { AppLayout } from "../../components/AppLayout";
 
+const NewPost = (props) => {
+  console.log('NEW POST PROPS: ', props);
 
-export default function NewPost() {
-    return <div>
+  const handleClick = async () => {
+    const response = await fetch(`/api/generatePost`, {
+      method: "POST"
+    });
+
+    const json = await response.json();
+    console.log('RESULT:', json);
+  };
+
+  return (
+    <div>
+      <h1>this is a new page</h1>
+      <button className="btn" onClick={handleClick}>
+        Generate
+      </button>
     </div>
-  }
-  
+  );
+};
 
-NewPost.getLayout = function getLayout(page, pageProps){
-    return<AppLayout{...pageProps}>{page}</AppLayout>;
-}; 
+NewPost.getLayout = function getLayout(page, pageProps) {
+  return <AppLayout {...pageProps}>{page}</AppLayout>;
+};
 
-  export const getServerSideProps = withPageAuthRequired (() =>{
-    return{
-        props:{
+export const getServerSideProps = withPageAuthRequired(() => {
+  return {
+    props: {}
+  };
+});
 
-        }
-    }
-  });
+export default NewPost;

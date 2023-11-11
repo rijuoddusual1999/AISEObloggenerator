@@ -9,7 +9,7 @@
 
 ## Homepage
 
-![Alt text](Snapshots/HomePage.png)
+![Alt text](HomePage.png)
 
 ## Blog Generation Page
 

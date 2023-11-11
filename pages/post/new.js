@@ -1,7 +1,7 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { AppLayout } from "../../components/AppLayout";
 
-const NewPost = (props) => {
+export default function NewPost(props) {
   console.log('NEW POST PROPS: ', props);
 
   const handleClick = async () => {
@@ -10,7 +10,7 @@ const NewPost = (props) => {
     });
 
     const json = await response.json();
-    console.log('RESULT:', json);
+    console.log('RESULT: ', json);
   };
 
   return (
@@ -33,4 +33,4 @@ export const getServerSideProps = withPageAuthRequired(() => {
   };
 });
 
-export default NewPost;
+

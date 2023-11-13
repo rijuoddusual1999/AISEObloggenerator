@@ -13,7 +13,7 @@
 
 ## Blog Generation Page
 
-![Alt text](bloggen.png)
+![Alt text](<Screenshot from 2023-11-13 20-29-39.png>)
 
 ## Authwall
 

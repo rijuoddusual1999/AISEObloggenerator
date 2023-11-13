@@ -6,11 +6,15 @@ export default function NewPost(props) {
 
   const handleClick = async () => {
     const response = await fetch(`/api/generatePost`, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-
+    
     const json = await response.json();
     console.log('RESULT: ', json);
+    
   };
 
   return (

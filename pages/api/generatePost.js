@@ -12,7 +12,7 @@ export default withApiAuthRequired(async function handler(req, res) {
   const db = client.db("BlogBraniac");
   
 
-  const userProfile = db.collection("users").findOne({
+  const userProfile = await db.collection("users").findOne({
      auth0Id: user.sub,
   });
 
@@ -118,7 +118,11 @@ export default withApiAuthRequired(async function handler(req, res) {
     } 
   });
 
-  const parsed = await json({post: {postContent,title,metaDescription}});
+  const parsed = {
+    postContent,
+    title,
+    metaDescription,
+  };
 
   const post = await db.collection("posts").insertOne({
     postContent: parsed?.postContent,

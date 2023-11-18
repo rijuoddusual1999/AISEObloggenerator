@@ -2,9 +2,13 @@ import { getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { AppLayout } from "../../components/AppLayout";
 import clientPromise from "../../lib/mongodb.js";
 import { ObjectId } from "mongodb";
+import { redirect } from "next/dist/server/api-utils";
+
 
 export default function Post(props) {
-    console.log('PROPS: ',props)
+    console.log('PROPS: ',props);
+    console.log(_id);
+    
 
     return <div>
       <h1>
@@ -28,16 +32,22 @@ export default function Post(props) {
         auth0Id : userSession.user.sub,
       });
       const post = await db.collection("posts").findOne({
-        _id: new ObjectId(ctx.params.postId),
+        _id : new ObjectId(ctx.params.postId),
         userId: user._id,
       });
 
+      if(!post){
+        return{
+        redirect:{
+         destination: "/post/new",
+         permanent: false
+      
+      } 
 
-      if (!post) {
-        return {
-          notFound: true,
-        };
+    }
+
       }
+      
 
     
 

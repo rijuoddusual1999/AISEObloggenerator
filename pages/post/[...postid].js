@@ -3,17 +3,31 @@ import { AppLayout } from "../../components/AppLayout";
 import clientPromise from "../../lib/mongodb.js";
 import { ObjectId } from "mongodb";
 import { redirect } from "next/dist/server/api-utils";
+import { getAppProps } from "../../utils/getAppProps";
 
 
 export default function Post(props) {
     console.log('PROPS: ',props);
-    console.log(_id);
     
 
-    return <div>
-      <h1>
-       this is post  
-      </h1>
+    return <div className="overflow-auto h-full bg-slate-300">
+      <div className="max-w-screen-sm mx-auto">
+      <div className="text-5xl font-bold mt-6 p-2 bg-gray-500 rounded-sm">
+        Keywords
+       </div>
+       <div className="flex flex-wrap pt-2 gap-1">
+        {props.keywords.split(",").map((keyword, i) => (
+          <div key={i} className="p-2 rounded-full bg-slate-800 text-white">
+            {keyword}
+          </div>
+        ))}
+      </div>
+
+       <div className="text-5xl font-bold mt-6 p-2 bg-gray-500 rounded-sm">
+        Blog
+       </div>
+       <div dangerouslySetInnerHTML={{__html: props.postContent || ''}}/>
+      </div>
     </div>
   }
   
@@ -25,6 +39,7 @@ export default function Post(props) {
 
   export const getServerSideProps = withPageAuthRequired ({
     async getServerSideProps(ctx){
+      const props = await getAppProps(ctx);
       const userSession = await getSession(ctx.req, ctx.res);
       const client = await clientPromise;
       const db = client.db("BlogBraniac");
@@ -56,7 +71,8 @@ export default function Post(props) {
           postContent: post.postContent,
           title: post.title,
           metaDescription: post.metaDescription,
-          keywords: post.keywords
+          keywords: post.keywords,
+          ...props,
         },
       };
 

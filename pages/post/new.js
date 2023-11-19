@@ -1,11 +1,12 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { AppLayout } from "../../components/AppLayout";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { getAppProps } from "../../utils/getAppProps";
+
 
 export default function NewPost(props) {
-  console.log('NEW POST PROPS: ', props);
-  const [postContent,setPostContent] = useState("");
-
+  const router = useRouter();
   const[keywords,setKeywords] = useState("");
   const[topic,setTopic] = useState("");
 
@@ -21,8 +22,12 @@ export default function NewPost(props) {
     });
   
     const json = await response.json();
-    console.log('RESULT: ', json.post.postContent);
-    setPostContent(json.post.postContent);
+    console.log('RESULT: ', json);
+
+    if(json?.postId){
+       router.push(`/post/${json.postId}`);
+    }
+
   };
   
 
@@ -52,9 +57,7 @@ export default function NewPost(props) {
         <textarea className="resize-none border border-slate-700 w-full block my-2 px-4 py-2 rounded-sm" value={keywords} onChange={(e) => setKeywords(e.target.value)}/>
 
        </div>
-       </form>
-      <div className="max-w-screen-sm p-10" dangerouslySetInnerHTML={{__html: postContent}}/>
-      
+       </form>      
     </div>
   );
 };
@@ -63,10 +66,13 @@ NewPost.getLayout = function getLayout(page, pageProps) {
   return <AppLayout {...pageProps}>{page}</AppLayout>;
 };
 
-export const getServerSideProps = withPageAuthRequired(() => {
-  return {
-    props: {}
-  };
-});
 
 
+export const getServerSideProps = withPageAuthRequired ({
+  async getServerSideProps(ctx){
+    const props = await getAppProps(ctx);
+    return{
+      props,
+    };
+  },
+});  

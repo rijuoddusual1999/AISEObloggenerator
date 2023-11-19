@@ -2,9 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-heading my-6 font-bold;
+        font-family: inherit; /* Use the default font family */
+    }
 
-@layer components{
-    .btn{
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+
+    h5 {
+        @apply text-sm;
+    }
+
+    .font-heading {
+        font-family: inherit; /* Use the default font family */
+    }
+}
+
+@layer components {
+    .btn {
         @apply bg-indigo-600 tracking-wider text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-indigo-800 transition-colors block;
     }
 }

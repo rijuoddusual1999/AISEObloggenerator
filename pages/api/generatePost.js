@@ -134,7 +134,11 @@ export default withApiAuthRequired(async function handler(req, res) {
     created: new Date()
   });
 
+  console.log('POST: ',post);
+
   // Add code to send the response back to the client
-  res.status(200).json({post: {postContent,title,metaDescription}});
+  res.status(200).json({
+    postId: post.insertedId,
+  });
 }
 )

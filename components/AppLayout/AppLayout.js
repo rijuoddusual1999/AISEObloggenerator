@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "../Logo";
 
-export const AppLayout = ({children}) =>{
+export const AppLayout = ({children, ...rest}) =>{
     const {user} = useUser();
+    console.log('APP PROPS: ', rest);
+
+
     return(
         <div className='grid grid-cols-[300px_1fr] h-screen max-h-screen'>
             <div className="flex flex-col text-white overflow-hidden">
@@ -39,7 +42,7 @@ export const AppLayout = ({children}) =>{
                 </div>
                 </div>      
             </div>
-            <div>{children}</div>
+            {children}
         </div>
     )
 }

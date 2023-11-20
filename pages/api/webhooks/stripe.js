@@ -27,8 +27,7 @@ const handler = async (req,res) =>{
         event = await verifyStripe({
         req,
         stripe,
-        endpointSecret
-         
+        endpointSecret,     
        })
     }catch(e){
         console.log("ERROR: ",e)

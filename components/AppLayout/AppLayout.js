@@ -14,7 +14,7 @@ export const AppLayout = ({children, availableTokens, posts, postId}) =>{
             <div className="flex flex-col text-white overflow-hidden">
             <div className="bg-gray-800 px-2">
             <Logo/>
-            <Link href="/post/new" className="bg-indigo-600 tracking-wider text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-indigo-800 transition-colors block">cta button</Link>
+            <Link href="/post/new" className="bg-indigo-600 hover:no-underline tracking-wider text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-indigo-800 transition-colors block">cta button</Link>
             <Link href="/token-topup" className="block mt-2 text-center">
             <FontAwesomeIcon icon={faWallet} className="text-yellow-500" />
             <span className="pl-1"> {availableTokens} tokens available</span>

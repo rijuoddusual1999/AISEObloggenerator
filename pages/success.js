@@ -5,8 +5,8 @@ import { getAppProps } from "../utils/getAppProps";
 
 export default function Success() {
 
-    return <div>
-      <h1>
+    return <div className="bg-gray-400 h-screen flex items-center justify-center">
+      <h1 className="text-2xl font-semibold text-gray-800 mx-auto">
        Thank you for your purchase! 
       </h1>
     </div>

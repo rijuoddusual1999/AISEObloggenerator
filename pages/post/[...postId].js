@@ -47,7 +47,7 @@ export default function Post(props) {
         auth0Id : userSession.user.sub,
       });
       const post = await db.collection("posts").findOne({
-        _id : new ObjectId(ctx.params.postId),
+        _id : new ObjectId(ctx.params.postId[0]),
         userId: user._id,
       });
 

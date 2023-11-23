@@ -50,7 +50,7 @@ export default function Post(props) {
         _id : new ObjectId(ctx.params.postId),
         userId: user._id,
       });
-
+  
       if(!post){
         return{
         redirect:{
@@ -63,19 +63,17 @@ export default function Post(props) {
 
       }
       
-
-    
+          
 
       return{
-        props:{
+        props: {
           postContent: post.postContent,
           title: post.title,
           metaDescription: post.metaDescription,
           keywords: post.keywords,
           ...props,
-        },
+      },
       };
 
     },
   });
-

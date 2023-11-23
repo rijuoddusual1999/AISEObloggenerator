@@ -1,4 +1,5 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import '../styles/custom-scrollbar.css';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import {config} from '@fortawesome/fontawesome-svg-core';

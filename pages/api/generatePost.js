@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from 'openai';
 import { config } from 'dotenv';
-import { WithApiAuthRequired, withApiAuthRequired } from '@auth0/nextjs-auth0';
+import {withApiAuthRequired } from '@auth0/nextjs-auth0';
 import clientPromise from '../../lib/mongodb';
 import { getSession } from '@auth0/nextjs-auth0';
 

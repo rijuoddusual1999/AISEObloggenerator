@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "../Logo";
 
+
 export const AppLayout = ({children, availableTokens, posts, postId}) =>{
     const {user} = useUser();
 

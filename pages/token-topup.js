@@ -17,13 +17,18 @@ export default function TokenTopup() {
 
   };
   
-
-    return <div>
-      <h1>
-       hello world , this is token top up 
+  return (
+    <div className="bg-gray-400 h-screen flex flex-col items-center justify-center">
+      <h1 className="text-2xl font-semibold text-gray-800 mx-auto mb-4">
+        Pls topup your token
       </h1>
-      <button className="btn" onClick={handleClick}>Add Tokens</button>
+      <button className="btn" onClick={handleClick}>
+        Add Tokens
+      </button>
     </div>
+  );
+
+
   }
 TokenTopup.getLayout = function getLayout(page, pageProps){
     return<AppLayout{...pageProps}>{page}</AppLayout>;

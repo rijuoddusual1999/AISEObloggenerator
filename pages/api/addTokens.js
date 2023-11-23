@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   const checkoutSession = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: 'payment',
-    success_url: `${protocol}${host}/success`,
+    success_url: `${protocol}${host}/post/new`,
     payment_intent_data: {
       metadata: {
         sub: user.sub
@@ -32,6 +32,25 @@ export default async function handler(req, res) {
       sub: user.sub
     },
   });
+
+  const client = await clientPromise;
+            const db = client.db("BlogBraniac");
+            const userProfile = await db.collection("users").updateOne(
+                {
+                auth0Id: user.sub,
+                },
+                {
+                $inc: {
+                    availableTokens: 10,
+                },
+                $setOnInsert: {
+                    auth0Id: user.sub,
+                },
+                },
+                {
+                upsert: true,
+                }
+  );
   
 
   console.log('user:', user);

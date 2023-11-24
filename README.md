@@ -25,12 +25,12 @@
 
 ## Blog Generation Page
 
-![Alt text](<Screenshot from 2023-11-24 13-55-52.png>)
-
+![Alt text](<Screenshot from 2023-11-24 14-19-52.png>)
 
 ## Blog Generated Page
 
-![Alt text](<Screenshot from 2023-11-24 13-57-54.png>)
+![Alt text](<Screenshot from 2023-11-24 14-22-47.png>)
+
 
 
 

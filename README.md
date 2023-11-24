@@ -1,21 +1,36 @@
-# BlogBrainiac - An ongoing AI generated SEO friendly website for creatingf blogs
+# BlogBrainiac - An AI generated SEO friendly website for creating blogs
 
 ## Key Feature
 
-- An Open AI based blog generation website which is SEO friendly 
-- The website is able to authenticate users based on Auth0
-- This website integrates a payment system using Stripe 
-- MongoDB database is used 
+- A Next.js app that uses OpenAI GPT Turbo API key to generate SEO-friendly blogs 
+- User authentication is implemented through Auth0
+- Stripe is used for handling payments with the implementation of stripe webhooks
+- MongoDB database is used for storing the token user data and post data.
 
 ## Homepage
 
 ![Alt text](HomePage.png)
 
-## Blog Generation Page
-
-![Alt text](<Screenshot from 2023-11-13 20-29-39.png>)
-
 ## Authwall
 
 ![Alt text](Auth.png)
+
+## Add Tokens Page
+
+![Alt text](<Screenshot from 2023-11-24 13-46-08.png>)
+
+## Stripe Payment Gateway
+
+![Alt text](<Screenshot from 2023-11-24 13-46-18.png>)
+
+## Blog Generation Page
+
+![Alt text](<Screenshot from 2023-11-24 13-55-52.png>)
+
+
+## Blog Generated Page
+
+![Alt text](<Screenshot from 2023-11-24 13-57-54.png>)
+
+
 

@@ -4,7 +4,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "../Logo";
-
+import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
 
 export const AppLayout = ({children, availableTokens, posts, postId}) =>{
     const {user} = useUser();
@@ -14,7 +14,14 @@ export const AppLayout = ({children, availableTokens, posts, postId}) =>{
         <div className='grid grid-cols-[300px_1fr] h-screen max-h-screen'>
             <div className="flex flex-col text-white overflow-hidden">
             <div className="bg-gray-800 px-2">
-            <Logo/>
+            <div className="text-3xl text-center py-4">
+            <div className="text-3xl text-center py-4">
+            <a href="http://localhost:3000/post/new" rel="noopener noreferrer">
+                BlogBrainiac<FontAwesomeIcon icon={faPenFancy} className="text-2xl text-lime-400 pl-2"/>
+            </a>
+            </div>
+
+            </div>
             <Link href="/post/new" className="bg-indigo-600 hover:no-underline tracking-wider text-center text-white font-bold cursor-pointer uppercase px-4 py-2 rounded-md hover:bg-indigo-800 transition-colors block">cta button</Link>
             <Link href="/token-topup" className="block mt-2 text-center">
             <FontAwesomeIcon icon={faWallet} className="text-yellow-500" />

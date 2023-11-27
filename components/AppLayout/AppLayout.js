@@ -16,7 +16,7 @@ export const AppLayout = ({children, availableTokens, posts, postId}) =>{
             <div className="bg-gray-800 px-2">
             <div className="text-3xl text-center py-4">
             <div className="text-3xl text-center py-4">
-            <a href="http://localhost:3000/post/new" rel="noopener noreferrer">
+            <a href="https://blogbraniac.netlify.app/post/new" rel="noopener noreferrer">
                 BlogBrainiac<FontAwesomeIcon icon={faPenFancy} className="text-2xl text-lime-400 pl-2"/>
             </a>
             </div>
@@ -53,3 +53,7 @@ export const AppLayout = ({children, availableTokens, posts, postId}) =>{
         </div>
     )
 }
+
+
+/* fixed home url */
+
